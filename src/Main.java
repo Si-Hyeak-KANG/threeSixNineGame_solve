@@ -4,16 +4,15 @@ public class Main {
 
     public static void main(String[] args) {
         Player[] players = new Player[]{
-                Player.of("강시혁", 3),
-                Player.of("이수정", 5),
-                Player.of("땡이", 5),
-                Player.of("스프링", 1)
+                Player.of("광수", 3),
+                Player.of("재석", 5),
+                Player.of("석진", 5),
+                Player.of("하하", 1)
         };
         ClapCounter clapCounter = new ClapCounter();
 
-        Thread1 t1 = new Thread1(players,clapCounter,new SeoulThreeSixNineGame());
-        Thread1 t2 = new Thread1(players,clapCounter,new BusanThreeSixNineGame());
-
+        ThreeSixNineGame t1 = new SeoulThreeSixNineGame(players, clapCounter);
+        ThreeSixNineGame t2 = new BusanThreeSixNineGame(players, clapCounter);
         t1.start();
         t2.start();
 
@@ -23,42 +22,6 @@ public class Main {
             clapCounter.printClapCount();
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
-    }
-
-    static class Thread1 extends Thread {
-
-        Player[] players;
-        ClapCounter clapCounter;
-        ThreeSixNineGame threeSixNineGame;
-
-        public Thread1(Player[] players, ClapCounter clapCounter, ThreeSixNineGame threeSixNineGame) {
-            this.players = players;
-            this.clapCounter = clapCounter;
-            this.threeSixNineGame = threeSixNineGame;
-        }
-
-        @Override
-        public void run() {
-            threeSixNineGame.playGame(players, clapCounter);
-        }
-    }
-
-    static class Thread2 extends Thread {
-
-        Player[] players;
-        ClapCounter clapCounter;
-        ThreeSixNineGame threeSixNineGame;
-
-        public Thread2(Player[] players, ClapCounter clapCounter, ThreeSixNineGame threeSixNineGame) {
-            this.players = players;
-            this.clapCounter = clapCounter;
-            this.threeSixNineGame = threeSixNineGame;
-        }
-
-        @Override
-        public void run() {
-            threeSixNineGame.playGame(players, clapCounter);
         }
     }
 }

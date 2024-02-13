@@ -1,7 +1,7 @@
 public class SeoulThreeSixNineGame extends ThreeSixNineGame {
 
-    public SeoulThreeSixNineGame() {
-        super.info = "seoul";
+    public SeoulThreeSixNineGame(Player[] players, ClapCounter clapCounter) {
+        super(players,clapCounter,"seoul");
     }
 
     /**

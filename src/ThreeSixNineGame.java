@@ -9,9 +9,21 @@
  * 8) (현재 숫자-1 % 4) => players 인덱스
  * 9) do369의 결과와 인덱스에 해당하는 players를 sout로 출력
  */
-public abstract class ThreeSixNineGame {
+public abstract class ThreeSixNineGame extends Thread {
 
+    Player[] players;
+    ClapCounter clapCounter;
     String info;
+
+    ThreeSixNineGame(Player[] players, ClapCounter clapCounter, String info) {
+        this.players = players;
+        this.clapCounter = clapCounter;
+        this.info = info;
+    }
+
+    public ThreeSixNineGame() {
+
+    }
 
     /**
      number 에 3,6,9가 포함되면 "clap", 아니면 입력받은 숫자를 String으로 리턴
@@ -21,7 +33,7 @@ public abstract class ThreeSixNineGame {
      */
     public abstract String do369(int number);
 
-    void playGame(Player[] players, ClapCounter clapCounter) {
+    void playGame() {
         int num = 1;
         while(true) {
             int idx = (num-1)% players.length;
@@ -32,6 +44,11 @@ public abstract class ThreeSixNineGame {
             if(result.contains("clap")) clapCounter.plusCount();
             num++;
         }
+    }
+
+    @Override
+    public void run() {
+        playGame();
     }
 }
 

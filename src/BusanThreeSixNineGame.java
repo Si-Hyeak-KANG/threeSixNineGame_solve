@@ -1,7 +1,7 @@
 public class BusanThreeSixNineGame extends ThreeSixNineGame {
 
-    public BusanThreeSixNineGame() {
-        super.info = "busan";
+    public BusanThreeSixNineGame(Player[] players, ClapCounter clapCounter) {
+        super(players, clapCounter, "busan");
     }
 
     @Override
