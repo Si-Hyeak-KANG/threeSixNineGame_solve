@@ -21,10 +21,6 @@ public abstract class ThreeSixNineGame extends Thread {
         this.info = info;
     }
 
-    public ThreeSixNineGame() {
-
-    }
-
     /**
      number 에 3,6,9가 포함되면 "clap", 아니면 입력받은 숫자를 String으로 리턴
      do369(16) -> "clap"
