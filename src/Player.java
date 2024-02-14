@@ -16,6 +16,6 @@ public class Player {
 
     public boolean correctAnswer() {
         double randomValue = Math.random() * 100; 
-        return randomValue <= errorRate;
+        return randomValue > errorRate;
     }
 }
