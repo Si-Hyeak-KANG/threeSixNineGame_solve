@@ -15,7 +15,7 @@ public class Player {
     }
 
     public boolean correctAnswer() {
-        double randomValue = Math.random() * 100; 
+        double randomValue = Math.random() * 101; // 0부터 100까지의 값 
         return randomValue > errorRate;
     }
 }
